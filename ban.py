@@ -26,7 +26,7 @@ API_ID = API_ID
 API_HASH = API_HASH
 BOT_TOKEN = BOT_TOKEN
 
-blaze = Client(
+star = Client(
             ":memory:",
             api_id=API_ID,
             api_hash=API_HASH,
