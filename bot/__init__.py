@@ -1,13 +1,12 @@
 import asyncio
 
-from pyrogram import Client,filters, idle
+from pyrogram import Client,filters
 from pyrogram.types import *
-from config import config
+from .config import Config
 import logging
 from pyrogram.errors import (
     ChatAdminRequired
 )
-
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
@@ -15,6 +14,7 @@ logging.basicConfig(
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
 
 bot=Client(":memory:",api_id=Config.TELEGRAM_APP_ID,api_hash=Config.TELEGRAM_APP_HASH,bot_token=Config.TELEGRAM_TOKEN)
+
 
 SUDOS = Config.SUDOS
 
@@ -38,9 +38,6 @@ def NewChat(bot,message):
             
     logging.info("process completed")
 
-@star.on_message(filters.command("alive"))
-async def alive(bot, message):
-    await message.reply("**Am Alive ❣️**\n\n𝙰 𝙶𝚁𝙾𝚄𝙿 𝙳𝙸𝚂𝚃𝚁𝚄𝙲𝚃𝙸𝙾𝙽 𝙱𝙾𝚃 𝙼𝙰𝙳𝙴 𝚆𝙸𝚃𝙷 𝙿𝚈𝚁𝙾𝙶𝚁𝙰𝙼 𝙵𝙾𝚁 𝙳𝙸𝚂𝚃𝚁𝙾𝚈𝙸𝙽𝙶 𝚃𝙴𝙻𝙴𝙶𝚁𝙰𝙼 𝙲𝙷𝙰𝚃𝚂")
 
 
 @bot.on_message(filters.command("start") & filters.private)
